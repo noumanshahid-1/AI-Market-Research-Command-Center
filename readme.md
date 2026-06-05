@@ -17,7 +17,6 @@ The system analyzes stocks, crypto assets, market news, product trends, sentimen
 ## Preview
 
 
-```md
 
 ![Dashboard Preview](screenshots/dashboard.png)
 
@@ -30,7 +29,7 @@ The system analyzes stocks, crypto assets, market news, product trends, sentimen
 ![Top Stocks](screenshots/top_stocks.png)
 ```
 
----
+
 
 ## Key Features
 
