@@ -19,8 +19,10 @@ The system analyzes stocks, crypto assets, market news, product trends, sentimen
 
 ### Dashboard Preview
 ![Dashboard Preview](screenshots/dashboard.png)
-### Dashboard Preview
+### Comparison Mode
 ![Comparison Mode](screenshots/comparison.png)
+### Stock Intelligence
+![Stock Intelligence](screenshots/stock_intelligence.png)
 ### Product Intelligence
 ![Product Intelligence](screenshots/product_intelligence.png)
 ### Screener Dashboard
