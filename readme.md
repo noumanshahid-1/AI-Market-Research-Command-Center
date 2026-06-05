@@ -16,7 +16,6 @@ The system analyzes stocks, crypto assets, market news, product trends, sentimen
 
 ## Preview
 
-Add your screenshots inside a `screenshots/` folder and update these paths if needed.
 
 ```md
 ![Dashboard Preview](screenshots/dashboard.png)
@@ -165,8 +164,6 @@ You can get a News API key from:
 https://newsapi.org/
 ```
 
-The `.env` file should never be pushed to GitHub.
-
 ---
 
 ## Setup Instructions
@@ -244,8 +241,6 @@ requests
 
 ## Large Files Not Included
 
-Do not commit or push large/runtime files such as:
-
 ```txt
 venv/
 .venv/
@@ -264,50 +259,6 @@ cache/
 ```
 
 These files are ignored because they are either local, private, generated at runtime, or too large for GitHub.
-
----
-
-## Recommended `.gitignore`
-
-```txt
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Virtual environments
-venv/
-.venv/
-
-# Environment variables
-.env
-.streamlit/secrets.toml
-
-# Local runtime data
-data/watchlist.json
-data/search_history.json
-
-# Cache / outputs
-cache/
-outputs/
-*.log
-
-# Large data files
-*.csv
-*.xlsx
-*.parquet
-*.db
-*.sqlite
-
-# IDE
-.vscode/
-.idea/
-
-# OS
-.DS_Store
-Thumbs.db
-```
 
 ---
 
@@ -339,27 +290,6 @@ Expected result:
 * Watchlist and search history work locally
 * Charts render correctly
 * Screener, comparison, heatmap, stock, news, and product modes work correctly
-
----
-
-## Deployment Notes
-
-For Streamlit Cloud:
-
-1. Push the project to GitHub.
-2. Make sure `requirements.txt` exists.
-3. Do not upload `.env`.
-4. Add your API key in Streamlit Cloud secrets:
-
-```txt
-NEWS_API_KEY="your_real_news_api_key_here"
-```
-
-5. Set the main file as:
-
-```txt
-main.py
-```
 
 ---
 
