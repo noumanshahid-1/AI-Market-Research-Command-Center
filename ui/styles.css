@@ -1,0 +1,1546 @@
+/* =========================
+   AI MARKET TERMINAL — STABLE PREMIUM UI
+   ========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+html, body, .stApp {
+    background:
+        radial-gradient(circle at 20% 10%, rgba(37,99,235,0.18), transparent 30%),
+        radial-gradient(circle at 85% 5%, rgba(124,58,237,0.20), transparent 32%),
+        linear-gradient(135deg, #020617 0%, #07111f 48%, #0f172a 100%);
+    color: #f8fafc;
+    font-family: 'Inter', sans-serif;
+}
+
+.block-container {
+    padding-top: 1.8rem;
+    max-width: 1380px;
+}
+
+/* =========================
+   SIDEBAR
+   ========================= */
+
+section[data-testid="stSidebar"] {
+    background:
+        linear-gradient(180deg, #07111f 0%, #020617 100%);
+    border-right: 1px solid rgba(148,163,184,0.14);
+}
+
+.sidebar-title {
+    color: #f8fafc;
+    font-size: 1.35rem;
+    font-weight: 900;
+    margin-bottom: 0.2rem;
+}
+
+.sidebar-subtitle {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.sidebar-empty {
+    color: #94a3b8;
+    background: rgba(15,23,42,0.85);
+    border: 1px solid rgba(148,163,184,0.12);
+    border-radius: 16px;
+    padding: 0.85rem;
+    font-size: 0.9rem;
+}
+
+section[data-testid="stSidebar"] h3 {
+    color: #f8fafc !important;
+    font-size: 0.98rem;
+    font-weight: 850;
+}
+
+section[data-testid="stSidebar"] .stButton > button {
+    width: 100%;
+    background: rgba(15,23,42,0.92);
+    color: #e2e8f0;
+    border: 1px solid rgba(148,163,184,0.12);
+    border-radius: 14px;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.88rem;
+    font-weight: 750;
+    text-align: left;
+    box-shadow: none;
+}
+
+section[data-testid="stSidebar"] .stButton > button:hover {
+    background: linear-gradient(135deg, rgba(37,99,235,0.28), rgba(124,58,237,0.20));
+    border-color: rgba(96,165,250,0.30);
+    transform: translateY(-1px);
+}
+
+section[data-testid="stSidebar"] .stTextInput > div > div > input {
+    background: rgba(255,255,255,0.06);
+    color: white;
+    border-radius: 14px;
+    border: 1px solid rgba(148,163,184,0.16);
+}
+
+/* =========================
+   HEADER + INPUT
+   ========================= */
+
+.command-label {
+    color: #93c5fd;
+    font-size: 0.82rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+    margin-bottom: 0.45rem;
+}
+
+.stTextInput > div > div > input {
+    background: rgba(255,255,255,0.075);
+    color: white;
+    border-radius: 16px;
+    border: 1px solid rgba(148,163,184,0.18);
+    padding: 0.82rem 1rem;
+    font-size: 0.98rem;
+}
+
+.stTextInput > div > div > input:focus {
+    border-color: rgba(96,165,250,0.60);
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.16);
+}
+
+.stButton > button {
+    background: linear-gradient(135deg, #2563eb, #7c3aed, #db2777);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 0.68rem 1.1rem;
+    font-weight: 850;
+    box-shadow: 0 10px 26px rgba(124,58,237,0.28);
+    transition: all 0.22s ease;
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px rgba(168,85,247,0.32);
+}
+
+/* =========================
+   GLOBAL TEXT
+   ========================= */
+
+h1, h2, h3 {
+    color: #f8fafc !important;
+    letter-spacing: -0.03em;
+}
+
+[data-testid="stMarkdownContainer"] {
+    color: #e2e8f0;
+}
+
+/* =========================
+   CORE CARD FOUNDATION
+   ========================= */
+
+.summary-pro-card,
+.market-score-panel,
+.ai-confidence-panel,
+.predictive-panel,
+.sentiment-panel,
+.product-intel-panel,
+.stock-intel-card,
+.comparison-panel,
+.screener-leader-card,
+.screener-strategy-card,
+.strategy-pro-card,
+.heatmap-summary-card,
+.news-card,
+.screener-card,
+.product-mover-card,
+.comparison-card {
+    background: linear-gradient(
+        135deg,
+        rgba(15,23,42,0.92),
+        rgba(30,41,59,0.72)
+    );
+    border: 1px solid rgba(148,163,184,0.14);
+    border-radius: 26px;
+    box-shadow: 0 16px 42px rgba(0,0,0,0.30);
+    backdrop-filter: blur(22px);
+}
+
+/* =========================
+   SUMMARY
+   ========================= */
+
+.summary-pro-card {
+    position: relative;
+    overflow: hidden;
+    padding: 1.25rem 1.45rem;
+    margin: 1rem 0 1.2rem 0;
+}
+
+.summary-pro-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 5px;
+    background: linear-gradient(180deg, #22c55e, #60a5fa, #a855f7);
+}
+
+.summary-content {
+    padding-left: 0.7rem;
+}
+
+.summary-label {
+    color: #86efac;
+    font-size: 0.78rem;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+    margin-bottom: 0.35rem;
+}
+
+.summary-text {
+    color: #f8fafc;
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 600;
+}
+
+/* =========================
+   KPI CARDS
+   ========================= */
+
+.command-kpi-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 165px;
+    padding: 1.3rem;
+    margin-bottom: 1.2rem;
+    transition: all 0.25s ease;
+}
+
+.command-kpi-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(96,165,250,0.32);
+}
+
+.command-kpi-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.22;
+    pointer-events: none;
+}
+
+.command-kpi-card.positive::before {
+    background: radial-gradient(circle at top right, #22c55e, transparent 45%);
+}
+
+.command-kpi-card.negative::before {
+    background: radial-gradient(circle at top right, #ef4444, transparent 45%);
+}
+
+.command-kpi-card.neutral::before {
+    background: radial-gradient(circle at top right, #3b82f6, transparent 45%);
+}
+
+.kpi-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.command-kpi-icon {
+    font-size: 1.8rem;
+}
+
+.command-kpi-state {
+    font-size: 0.76rem;
+    font-weight: 900;
+    padding: 0.32rem 0.7rem;
+    border-radius: 999px;
+}
+
+.command-kpi-title {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: 0.65px;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.command-kpi-value {
+    color: white;
+    font-size: 2.25rem;
+    font-weight: 950;
+}
+
+.command-kpi-card.positive .command-kpi-state,
+.confidence-high,
+.predictive-positive,
+.sentiment-positive,
+.product-strong,
+.article-sentiment.bullish,
+.comparison-positive,
+.screener-positive {
+    color: #86efac;
+    background: rgba(34,197,94,0.15);
+}
+
+.command-kpi-card.negative .command-kpi-state,
+.confidence-low,
+.predictive-negative,
+.sentiment-negative,
+.article-sentiment.bearish,
+.comparison-negative,
+.screener-negative {
+    color: #fca5a5;
+    background: rgba(239,68,68,0.15);
+}
+
+.command-kpi-card.neutral .command-kpi-state,
+.confidence-medium,
+.predictive-neutral,
+.sentiment-neutral,
+.product-moderate,
+.article-sentiment.neutral,
+.comparison-neutral,
+.screener-neutral {
+    color: #93c5fd;
+    background: rgba(59,130,246,0.15);
+}
+
+/* =========================
+   MARKET SCORE + CONFIDENCE + PREDICTIVE
+   ========================= */
+
+.market-score-panel,
+.ai-confidence-panel,
+.predictive-panel {
+    padding: 1.35rem 1.5rem;
+    margin: 1rem 0 1.4rem 0;
+}
+
+.market-score-panel,
+.ai-confidence-panel {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 1rem;
+    align-items: center;
+}
+
+.score-label,
+.confidence-title,
+.predictive-title {
+    color: #f8fafc;
+    font-size: 0.92rem;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+}
+
+.score-value,
+.confidence-score,
+.predictive-probability {
+    font-size: 2.45rem;
+    font-weight: 950;
+    background: transparent !important;
+}
+
+.score-strong,
+.confidence-score.confidence-high {
+    color: #86efac;
+}
+
+.score-moderate,
+.confidence-score.confidence-medium {
+    color: #93c5fd;
+}
+
+.score-caution,
+.confidence-score.confidence-low {
+    color: #fca5a5;
+}
+
+.score-subtext,
+.confidence-subtitle,
+.predictive-subtitle {
+    color: #94a3b8;
+    font-size: 0.86rem;
+    margin-top: 0.25rem;
+}
+
+.confidence-label,
+.sentiment-pill,
+.sentiment-overall {
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 900;
+}
+
+.predictive-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.predictive-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.9rem;
+}
+
+.predictive-card,
+.sentiment-stat,
+.strategy-mini-panel,
+.screener-mini-grid div {
+    background: rgba(255,255,255,0.055);
+    border: 1px solid rgba(148,163,184,0.12);
+    border-radius: 18px;
+    padding: 1rem;
+}
+
+.predictive-label,
+.sentiment-stat-label,
+.strategy-mini-label,
+.product-panel-label {
+    color: #94a3b8;
+    font-size: 0.76rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.predictive-value,
+.sentiment-stat-value {
+    font-size: 1.55rem;
+    font-weight: 950;
+    margin-top: 0.35rem;
+}
+
+.predictive-explanation,
+.sentiment-score-line {
+    color: #cbd5e1;
+    font-size: 0.88rem;
+    font-weight: 650;
+    margin-top: 1rem;
+}
+
+/* =========================
+   STOCK
+   ========================= */
+
+.stock-intel-card {
+    padding: 1.45rem;
+    margin-bottom: 1.2rem;
+}
+
+.stock-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stock-ticker {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 950;
+}
+
+.stock-label {
+    color: #94a3b8;
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.stock-trend-pill {
+    padding: 0.45rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 900;
+}
+
+/* =========================
+   NEWS + SENTIMENT
+   ========================= */
+
+.news-card {
+    padding: 1.3rem;
+    margin-bottom: 1.1rem;
+    transition: all 0.25s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(96,165,250,0.28);
+}
+
+.news-topline {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    font-size: 0.82rem;
+    font-weight: 850;
+}
+
+.news-rank {
+    color: #60a5fa;
+}
+
+.news-source {
+    color: #94a3b8;
+}
+
+.news-title {
+    color: white;
+    font-size: 1.18rem;
+    font-weight: 900;
+    line-height: 1.45;
+}
+
+.news-description {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-top: 0.65rem;
+}
+
+.news-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.9rem;
+}
+
+.news-link {
+    color: #60a5fa;
+    font-weight: 850;
+    text-decoration: none;
+}
+
+.article-sentiment {
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 950;
+}
+
+.sentiment-panel {
+    padding: 1.4rem;
+    margin: 1rem 0 1.4rem 0;
+}
+
+.sentiment-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sentiment-panel-title {
+    color: white;
+    font-size: 1rem;
+    font-weight: 950;
+    text-transform: uppercase;
+}
+
+.sentiment-panel-subtitle {
+    color: #94a3b8;
+    font-size: 0.86rem;
+}
+
+.sentiment-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.85rem;
+    margin-top: 1rem;
+}
+
+/* =========================
+   PRODUCT
+   ========================= */
+
+.product-intel-panel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1.35rem;
+    margin-bottom: 1.4rem;
+}
+
+.product-panel-value,
+.product-panel-score {
+    color: white;
+    font-size: 1.7rem;
+    font-weight: 950;
+}
+
+.product-demand-pill {
+    display: inline-block;
+    padding: 0.55rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.86rem;
+    font-weight: 900;
+}
+
+.product-low {
+    color: #fde68a;
+    background: rgba(234,179,8,0.14);
+}
+
+.product-mover-card {
+    padding: 1.2rem;
+    min-height: 175px;
+    transition: all 0.25s ease;
+}
+
+.product-mover-rank {
+    color: #34d399;
+    font-size: 0.9rem;
+    font-weight: 900;
+}
+
+.product-mover-name {
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 850;
+    margin-top: 0.5rem;
+}
+
+.product-heatbar-bg,
+.screener-score-bg {
+    height: 9px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.product-heatbar-fill,
+.screener-score-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #22c55e, #60a5fa, #a855f7);
+}
+
+.product-mover-score {
+    color: #cbd5e1;
+    font-size: 0.85rem;
+    margin-top: 0.65rem;
+}
+
+/* =========================
+   SCREENER / COMPARISON / MULTI-ASSET
+   ========================= */
+
+.screener-leader-card {
+    padding: 1.35rem;
+    margin-bottom: 1.2rem;
+    background: linear-gradient(135deg, rgba(16,185,129,0.16), rgba(15,23,42,0.85));
+}
+
+.screener-leader-label {
+    color: #86efac;
+    font-size: 0.78rem;
+    font-weight: 950;
+    text-transform: uppercase;
+}
+
+.screener-leader-main {
+    color: white;
+    font-size: 2.2rem;
+    font-weight: 950;
+    margin-top: 0.3rem;
+}
+
+.screener-leader-sub {
+    color: #cbd5e1;
+    font-size: 0.92rem;
+    margin-top: 0.35rem;
+}
+
+.screener-card {
+    padding: 1.15rem;
+    min-height: 210px;
+    margin-bottom: 1rem;
+}
+
+.screener-rank {
+    color: #60a5fa;
+    font-size: 0.85rem;
+    font-weight: 900;
+}
+
+.screener-ticker {
+    color: white;
+    font-size: 1.45rem;
+    font-weight: 950;
+    margin-top: 0.5rem;
+}
+
+.screener-price {
+    color: #f8fafc;
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-top: 0.35rem;
+}
+
+.screener-trend,
+.comparison-change {
+    display: inline-block;
+    margin-top: 0.7rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 900;
+}
+
+.screener-mini-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem;
+    margin-top: 0.8rem;
+}
+
+.screener-mini-grid span {
+    color: #94a3b8;
+    font-size: 0.68rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.screener-mini-grid strong {
+    display: block;
+    color: white;
+    margin-top: 0.15rem;
+}
+
+.screener-score-text {
+    color: #cbd5e1;
+    font-size: 0.8rem;
+    font-weight: 750;
+    margin-top: 0.6rem;
+}
+
+/* =========================
+   STRATEGY
+   ========================= */
+
+.strategy-pro-card,
+.screener-strategy-card {
+    position: relative;
+    overflow: hidden;
+    padding: 1.45rem;
+    margin: 1.2rem 0 1.6rem 0;
+    background: linear-gradient(135deg, rgba(88,28,135,0.35), rgba(15,23,42,0.88));
+}
+
+.strategy-glow {
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(168,85,247,0.35), transparent 65%);
+}
+
+.strategy-header-row,
+.screener-strategy-top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.strategy-orb {
+    width: 52px;
+    height: 52px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    color: white;
+    font-weight: 950;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.strategy-title,
+.screener-strategy-title {
+    color: #ede9fe;
+    font-size: 0.92rem;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+}
+
+.strategy-subtitle,
+.screener-strategy-subtitle {
+    color: #a5b4fc;
+    font-size: 0.84rem;
+}
+
+.strategy-signal-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1rem 0;
+}
+
+.strategy-chip {
+    padding: 0.38rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.075);
+    color: #c4b5fd;
+    border: 1px solid rgba(196,181,253,0.16);
+    font-size: 0.8rem;
+    font-weight: 900;
+}
+
+.strategy-brief-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+}
+
+.strategy-mini-text {
+    color: #f8fafc;
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+/* =========================
+   CHARTS + HEATMAP
+   ========================= */
+
+div[data-testid="stPlotlyChart"] {
+    background: linear-gradient(135deg, rgba(15,23,42,0.92), rgba(30,41,59,0.62));
+    border: 1px solid rgba(148,163,184,0.14);
+    border-radius: 26px;
+    padding: 1rem;
+    box-shadow: 0 16px 42px rgba(0,0,0,0.26);
+    margin-bottom: 1.4rem;
+}
+
+.heatmap-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1rem 0 1.5rem 0;
+}
+
+.heatmap-summary-card {
+    padding: 1.1rem 1.2rem;
+}
+
+.heatmap-summary-title {
+    color: #93c5fd;
+    font-size: 0.78rem;
+    font-weight: 950;
+    text-transform: uppercase;
+}
+
+.heatmap-summary-text {
+    color: #f8fafc;
+    font-size: 0.98rem;
+    font-weight: 700;
+    margin-top: 0.35rem;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 900px) {
+    .strategy-brief-grid,
+    .predictive-grid,
+    .sentiment-grid,
+    .comparison-grid,
+    .product-intel-panel,
+    .heatmap-summary-grid,
+    .market-score-panel,
+    .ai-confidence-panel {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(148,163,184,0.22);
+    border-radius: 999px;
+}
+/* =========================================================
+   PREMIUM UI REBUILD — BATCH 2
+   Final visual refinement layer
+   ========================================================= */
+
+/* Main layout breathing room */
+.block-container {
+    padding-left: 2.2rem;
+    padding-right: 2.2rem;
+}
+
+/* Main background overlay depth */
+.stApp::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, rgba(2,6,23,0.65), transparent 28%, rgba(88,28,135,0.10)),
+        radial-gradient(circle at 78% 24%, rgba(59,130,246,0.12), transparent 30%);
+    z-index: 0;
+}
+
+.block-container {
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================
+   HERO HEADER POLISH
+   ========================= */
+
+div[data-testid="stMarkdownContainer"] h1 {
+    text-shadow: 0 10px 38px rgba(96,165,250,0.12);
+}
+
+/* Hero card from inline render_header */
+.block-container > div:first-child div[style*="border-radius:30px"] {
+    position: relative;
+    isolation: isolate;
+}
+
+.block-container > div:first-child div[style*="border-radius:30px"]::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: 29px;
+    pointer-events: none;
+    background:
+        linear-gradient(135deg, rgba(255,255,255,0.10), transparent 25%, rgba(255,255,255,0.04));
+    opacity: 0.65;
+}
+
+/* =========================
+   SIDEBAR COMMAND TERMINAL
+   ========================= */
+
+section[data-testid="stSidebar"] {
+    box-shadow: inset -1px 0 0 rgba(255,255,255,0.04);
+}
+
+section[data-testid="stSidebar"]::before {
+    content: "";
+    display: block;
+    height: 4px;
+    background: linear-gradient(90deg, #2563eb, #7c3aed, #22c55e);
+    margin: -1rem -1rem 1.2rem -1rem;
+}
+
+.sidebar-title::before {
+    content: "◉ ";
+    color: #22c55e;
+    text-shadow: 0 0 16px rgba(34,197,94,0.8);
+}
+
+section[data-testid="stSidebar"] hr {
+    border-color: rgba(148,163,184,0.14);
+    margin: 1.5rem 0;
+}
+
+/* Sidebar input shell */
+section[data-testid="stSidebar"] .stTextInput > div > div > input {
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+/* Sidebar button chips */
+section[data-testid="stSidebar"] .stButton > button {
+    position: relative;
+    overflow: hidden;
+}
+
+section[data-testid="stSidebar"] .stButton > button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(96,165,250,0.12), transparent);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+section[data-testid="stSidebar"] .stButton > button:hover::before {
+    opacity: 1;
+}
+
+/* =========================
+   SECTION SPACING + HEADINGS
+   ========================= */
+
+h2, h3 {
+    margin-top: 1.45rem !important;
+    margin-bottom: 0.75rem !important;
+}
+
+h2::after,
+h3::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 3px;
+    margin-top: 0.55rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #60a5fa, #a855f7, transparent);
+}
+
+/* =========================
+   PREMIUM CARD HOVER SYSTEM
+   ========================= */
+
+.summary-pro-card,
+.market-score-panel,
+.ai-confidence-panel,
+.predictive-panel,
+.sentiment-panel,
+.product-intel-panel,
+.stock-intel-card,
+.comparison-panel,
+.screener-leader-card,
+.screener-strategy-card,
+.strategy-pro-card,
+.heatmap-summary-card,
+.news-card,
+.screener-card,
+.product-mover-card,
+.comparison-card {
+    transition:
+        transform 0.24s ease,
+        border-color 0.24s ease,
+        box-shadow 0.24s ease;
+}
+
+.summary-pro-card:hover,
+.market-score-panel:hover,
+.ai-confidence-panel:hover,
+.predictive-panel:hover,
+.sentiment-panel:hover,
+.product-intel-panel:hover,
+.stock-intel-card:hover,
+.comparison-panel:hover,
+.screener-leader-card:hover,
+.screener-strategy-card:hover,
+.strategy-pro-card:hover,
+.heatmap-summary-card:hover,
+.news-card:hover,
+.screener-card:hover,
+.product-mover-card:hover,
+.comparison-card:hover {
+    border-color: rgba(96,165,250,0.28);
+    box-shadow:
+        0 22px 58px rgba(0,0,0,0.38),
+        0 0 0 1px rgba(96,165,250,0.08),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+/* =========================
+   SUMMARY CARD UPGRADE
+   ========================= */
+
+.summary-pro-card {
+    background:
+        radial-gradient(circle at 90% 20%, rgba(34,197,94,0.14), transparent 30%),
+        linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,41,59,0.70));
+}
+
+.summary-label::before {
+    content: " ";
+    color: #22c55e;
+}
+
+/* =========================
+   MARKET SCORE + CONFIDENCE VISUAL BALANCE
+   ========================= */
+
+.market-score-panel {
+    background:
+        radial-gradient(circle at 15% 20%, rgba(59,130,246,0.12), transparent 28%),
+        linear-gradient(135deg, rgba(15,23,42,0.94), rgba(30,41,59,0.72));
+}
+
+.ai-confidence-panel {
+    background:
+        radial-gradient(circle at 82% 20%, rgba(168,85,247,0.12), transparent 28%),
+        linear-gradient(135deg, rgba(15,23,42,0.94), rgba(30,41,59,0.72));
+}
+
+.predictive-panel {
+    background:
+        radial-gradient(circle at 12% 18%, rgba(34,197,94,0.11), transparent 30%),
+        linear-gradient(135deg, rgba(15,23,42,0.94), rgba(30,41,59,0.72));
+}
+
+/* Better metric emphasis */
+.score-value,
+.confidence-score,
+.predictive-probability {
+    text-shadow: 0 8px 26px rgba(96,165,250,0.16);
+}
+
+/* =========================
+   KPI CARD DEPTH
+   ========================= */
+
+.command-kpi-card {
+    background:
+        linear-gradient(135deg, rgba(15,23,42,0.94), rgba(30,41,59,0.68));
+}
+
+.command-kpi-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08), transparent 30%);
+    pointer-events: none;
+}
+
+/* =========================
+   STOCK CARD READABILITY
+   ========================= */
+
+.stock-intel-card {
+    background:
+        radial-gradient(circle at 90% 20%, rgba(59,130,246,0.10), transparent 28%),
+        linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,41,59,0.70));
+}
+
+.stock-ticker {
+    letter-spacing: -0.04em;
+}
+
+/* Native Streamlit metrics inside stock section */
+[data-testid="stMetric"] {
+    background: rgba(15,23,42,0.72);
+    border: 1px solid rgba(148,163,184,0.14);
+    border-radius: 18px;
+    padding: 1rem;
+}
+
+[data-testid="stMetricLabel"] {
+    color: #94a3b8 !important;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+[data-testid="stMetricValue"] {
+    color: #f8fafc !important;
+    font-weight: 950;
+}
+
+/* =========================
+   NEWS CARDS PREMIUM
+   ========================= */
+
+.news-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.news-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 18px;
+    bottom: 18px;
+    width: 4px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #60a5fa, #a855f7);
+}
+
+.news-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.news-title {
+    letter-spacing: -0.015em;
+}
+
+.news-link {
+    transition: color 0.2s ease;
+}
+
+.news-link:hover {
+    color: #93c5fd;
+}
+
+/* =========================
+   SENTIMENT PANEL
+   ========================= */
+
+.sentiment-panel {
+    background:
+        radial-gradient(circle at 82% 18%, rgba(59,130,246,0.14), transparent 30%),
+        linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,41,59,0.70));
+}
+
+.sentiment-stat {
+    transition: transform 0.22s ease;
+}
+
+.sentiment-stat:hover {
+    transform: translateY(-3px);
+}
+
+/* =========================
+   PRODUCT INTELLIGENCE
+   ========================= */
+
+.product-intel-panel {
+    background:
+        radial-gradient(circle at 12% 20%, rgba(16,185,129,0.12), transparent 30%),
+        linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,41,59,0.70));
+}
+
+.product-mover-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-mover-card::before {
+    content: "";
+    position: absolute;
+    right: -45px;
+    top: -45px;
+    width: 130px;
+    height: 130px;
+    background: radial-gradient(circle, rgba(16,185,129,0.18), transparent 65%);
+}
+
+/* =========================
+   SCREENER / BASKET DASHBOARD
+   ========================= */
+
+.screener-leader-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.screener-leader-card::after {
+    content: "";
+    position: absolute;
+    right: -70px;
+    top: -70px;
+    width: 210px;
+    height: 210px;
+    background: radial-gradient(circle, rgba(34,197,94,0.24), transparent 65%);
+}
+
+.screener-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.screener-card::after {
+    content: "";
+    position: absolute;
+    right: -60px;
+    bottom: -60px;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(59,130,246,0.10), transparent 65%);
+}
+
+/* =========================
+   STRATEGY BRIEFS
+   ========================= */
+
+.strategy-pro-card,
+.screener-strategy-card {
+    border-color: rgba(168,85,247,0.20);
+}
+
+.strategy-mini-panel {
+    transition: transform 0.22s ease, border-color 0.22s ease;
+}
+
+.strategy-mini-panel:hover {
+    transform: translateY(-3px);
+    border-color: rgba(196,181,253,0.22);
+}
+
+/* =========================
+   COMPARISON PANEL
+   ========================= */
+
+.comparison-panel {
+    background:
+        radial-gradient(circle at 85% 18%, rgba(124,58,237,0.14), transparent 30%),
+        linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,41,59,0.70));
+}
+
+.comparison-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.comparison-card::after {
+    content: "";
+    position: absolute;
+    right: -60px;
+    top: -60px;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(96,165,250,0.14), transparent 65%);
+}
+
+/* =========================
+   HEATMAP POLISH
+   ========================= */
+
+.heatmap-summary-grid .heatmap-summary-card {
+    transition: transform 0.22s ease;
+}
+
+.heatmap-summary-grid .heatmap-summary-card:hover {
+    transform: translateY(-4px);
+}
+
+/* =========================
+   CHART WRAPPER
+   ========================= */
+
+div[data-testid="stPlotlyChart"] {
+    position: relative;
+    overflow: hidden;
+}
+
+div[data-testid="stPlotlyChart"]::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.045), transparent 38%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* =========================
+   RESPONSIVE REFINEMENT
+   ========================= */
+
+@media (max-width: 1100px) {
+    .block-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* =========================================================
+   EMERGENCY UI HOTFIX — REMOVE DISTORTION
+   ========================================================= */
+
+/* Remove white top gap/header distortion */
+[data-testid="stHeader"] {
+    background: transparent !important;
+    height: 0rem !important;
+}
+
+[data-testid="stToolbar"] {
+    display: none !important;
+}
+
+#MainMenu {
+    visibility: hidden !important;
+}
+
+footer {
+    visibility: hidden !important;
+}
+
+.block-container {
+    padding-top: 0.8rem !important;
+}
+
+/* Fix broken sidebar title icon encoding */
+.sidebar-title::before {
+    content: "" !important;
+}
+
+.command-center-shell {
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.055),
+        rgba(255,255,255,0.018)
+    ) !important;
+    border: 1px solid rgba(255,255,255,0.10) !important;
+    border-radius: 24px !important;
+    padding: 1.2rem !important;
+}
+
+/* Fix input white box / invisible text */
+.stTextInput input,
+.stTextInput textarea,
+section[data-testid="stSidebar"] .stTextInput input {
+    background: #0b0f19 !important;
+    color: #ffffff !important;
+    caret-color: #ffffff !important;
+    border: 1px solid rgba(148,163,184,0.26) !important;
+    border-radius: 14px !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+.stTextInput input::placeholder,
+section[data-testid="stSidebar"] .stTextInput input::placeholder {
+    color: #9ca3af !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #9ca3af !important;
+}
+
+.stTextInput input:focus {
+    background: #0f172a !important;
+    border-color: rgba(56,189,248,0.75) !important;
+    box-shadow: 0 0 0 3px rgba(56,189,248,0.16) !important;
+}
+
+/* Fix browser autofill white input */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #0b0f19 inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+    caret-color: #ffffff !important;
+}
+
+/* Restore KPI cards rounded structure */
+.command-kpi-card {
+    border-radius: 26px !important;
+    overflow: hidden !important;
+    background:
+        radial-gradient(circle at 92% 12%, rgba(56,189,248,0.10), transparent 32%),
+        linear-gradient(135deg, #090b12, #121827) !important;
+    border: 1px solid rgba(255,255,255,0.10) !important;
+}
+
+/* Fix comparison section layout */
+.comparison-panel {
+    padding: 1.5rem !important;
+    border-radius: 28px !important;
+}
+
+.comparison-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 1.1rem !important;
+}
+
+.comparison-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1rem !important;
+}
+
+.comparison-card {
+    padding: 1.3rem !important;
+    border-radius: 22px !important;
+    min-height: 155px !important;
+}
+
+.comparison-title {
+    color: #ffffff !important;
+    font-size: 1rem !important;
+    font-weight: 950 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.75px !important;
+}
+
+.comparison-subtitle {
+    color: #94a3b8 !important;
+    font-size: 0.88rem !important;
+    margin-top: 0.25rem !important;
+}
+
+.comparison-ticker {
+    color: #ffffff !important;
+    font-size: 1.65rem !important;
+    font-weight: 950 !important;
+}
+
+.comparison-price {
+    color: #ffffff !important;
+    font-size: 2rem !important;
+    font-weight: 950 !important;
+    margin-top: 0.4rem !important;
+}
+
+/* Fix raw-looking panels */
+.market-score-panel,
+.ai-confidence-panel,
+.predictive-panel,
+.sentiment-panel,
+.product-intel-panel,
+.stock-intel-card,
+.summary-pro-card {
+    border-radius: 26px !important;
+    overflow: hidden !important;
+    background:
+        radial-gradient(circle at 88% 16%, rgba(56,189,248,0.08), transparent 32%),
+        linear-gradient(135deg, #090b12, #121827) !important;
+    border: 1px solid rgba(255,255,255,0.10) !important;
+}
+
+/* Fix sentiment/product text stacking */
+.sentiment-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 0.85rem !important;
+}
+
+.product-intel-panel {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1rem !important;
+}
+
+.predictive-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.9rem !important;
+}
+
+/* Keep dashboard darker, less blue */
+html, body, .stApp {
+    background:
+        radial-gradient(circle at 85% 8%, rgba(88,28,135,0.18), transparent 30%),
+        radial-gradient(circle at 18% 12%, rgba(15,23,42,0.65), transparent 34%),
+        linear-gradient(135deg, #030305 0%, #05070d 48%, #080b12 100%) !important;
+}
+
+/* Better sidebar contrast */
+section[data-testid="stSidebar"] {
+    background:
+        radial-gradient(circle at 20% 0%, rgba(34,197,94,0.06), transparent 28%),
+        linear-gradient(180deg, #020305 0%, #05070d 100%) !important;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .comparison-grid,
+    .sentiment-grid,
+    .product-intel-panel,
+    .predictive-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
